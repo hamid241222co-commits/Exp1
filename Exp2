@@ -1,0 +1,124 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Combined Web Page</title>
+
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: #f4f6f8;
+            font-family: Arial, sans-serif;
+        }
+        .section-box {
+            background: white;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        h2 {
+            color: #198754;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+        .highlight-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #0d6efd;
+        }
+        .profile-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container mt-4">
+
+    <div class="d-flex align-items-center mb-4">
+        <img src="" alt="Profile Photo" class="profile-img me-3">
+        <h3 class="mb-0">My Web Development Assignment</h3>
+    </div>
+
+    <div class="section-box">
+        <h2>Personal Resume</h2>
+        <h4>Ayaan Shaikh</h4>
+        <p><b>Email:</b> ayaan@gmail.com</p>
+        <p><b>Mobile:</b> 98XXXXXXXX</p>
+
+        <h5>Education</h5>
+        <p>Bachelor of Engineering – Computer Science</p>
+
+        <h5>Skills</h5>
+        <ul>
+            <li>HTML & CSS</li>
+            <li>Bootstrap</li>
+            <li>Database Basics</li>
+        </ul>
+
+        <h5>Experience</h5>
+        <p>Academic Projects and Assignments</p>
+
+        <h5>Contact Information</h5>
+        <p>Pune, Maharashtra</p>
+    </div>
+
+    <div class="section-box text-center">
+        <h2>Landing Page</h2>
+
+        <div class="bg-dark text-white p-4 rounded">
+            <h3>StudyMate</h3>
+            <p>Your daily academic helper</p>
+            <button class="btn btn-warning">Join Now</button>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <h5>Starter</h5>
+                <p>Free Access</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Advanced</h5>
+                <p>₹499 / month</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Pro</h5>
+                <p>₹999 / month</p>
+            </div>
+        </div>
+
+        <h5 class="mt-4">Get in Touch</h5>
+        <form>
+            <input class="form-control mb-2" placeholder="Your Name">
+            <input class="form-control mb-2" placeholder="Your Email">
+            <button class="btn btn-success">Submit</button>
+        </form>
+    </div>
+
+    <div class="section-box text-center">
+        <h2>Cities and Landmarks</h2>
+
+        <select class="form-select w-50 mx-auto">
+            <option>Chennai – Marina Beach</option>
+            <option>Kolkata – Victoria Memorial</option>
+            <option>Amritsar – Golden Temple</option>
+            <option>Bhopal – Upper Lake</option>
+            <option>Udaipur – City Palace</option>
+        </select>
+
+        <p class="highlight-text mt-3">
+            Famous Landmark Display
+        </p>
+    </div>
+
+</div>
+
+</body>
+</html>
