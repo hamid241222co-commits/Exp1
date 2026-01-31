@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Combined Web Page</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        img {
+            height: 100px;
+            border-radius: 50%;
+            transition: transform 0.4s;
+        }
+
+        img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+        }
+
+        #header {
+            margin-bottom: 30px;
+        }
+
+        #resume {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            transition: transform 0.4s;
+        }
+        #landing{
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            transition: transform 0.4s;
+        }
+        #cities{
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            transition: transform 0.4s
+        }
+        
+        #resume:hover{
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        #landing:hover{
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        #cities:hover{
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        #landingBox {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+
+        #landingBox:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        #joinBtn {
+            background-color: orange;
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        #joinBtn:hover {
+            background-color: darkorange;
+            transform: scale(1.1);
+        }
+
+        #plans {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        #plans div {
+            background-color: #eee;
+            padding: 15px;
+            width: 30%;
+            text-align: center;
+            border-radius: 8px;
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+        }
+
+        #plans div:hover {
+            background-color: #ddd;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            transition: border 0.3s, box-shadow 0.3s;
+        }
+
+        input:focus {
+            border: 2px solid green;
+            box-shadow: 0 0 8px rgba(0,128,0,0.4);
+            outline: none;
+        }
+
+        #submitBtn {
+            background-color: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        #submitBtn:hover {
+            background-color: darkgreen;
+            transform: translateY(-3px);
+        }
+
+        select {
+            width: 50%;
+            padding: 10px;
+            margin-top: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        select:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        #highlight {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #ff6600;
+            transition: letter-spacing 0.3s;
+        }
+
+        #highlight:hover {
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="container">
+
+    <div id="header">
+        <h3>My Web Development Assignment</h3>
+    </div>
+
+    <div id="resume">
+        <h2>Personal Resume</h2>
+        <img src="download.jpg">
+        <h4>Ayaan Shaikh</h4>
+
+        <p><b>Email:</b> ayaan@gmail.com</p>
+        <p><b>Mobile:</b> 98XXXXXXXX</p>
+
+        <h5>Education</h5>
+        <p>Bachelor of Engineering – Computer Science</p>
+
+        <h5>Skills</h5>
+        <ul>
+            <li>HTML & CSS</li>
+            <li>Bootstrap</li>
+            <li>Database Basics</li>
+        </ul>
+
+        <h5>Experience</h5>
+        <p>Academic Projects and Assignments</p>
+
+        <h5>Contact Information</h5>
+        <p>Pune, Maharashtra</p>
+    </div>
+
+    <div id="landing">
+        <h2>Landing Page</h2>
+
+        <div id="landingBox">
+            <h3>StudyMate</h3>
+            <p>Your daily academic helper</p>
+            <button id="joinBtn">Join Now</button>
+        </div>
+
+        <div id="plans">
+            <div>
+                <h5>Starter</h5>
+                <p>Free Access</p>
+            </div>
+            <div>
+                <h5>Advanced</h5>
+                <p>₹499 / month</p>
+            </div>
+            <div>
+                <h5>Pro</h5>
+                <p>₹999 / month</p>
+            </div>
+        </div>
+
+        <h5>Get in Touch</h5>
+        <form>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <button id="submitBtn">Submit</button>
+        </form>
+    </div>
+
+    <div id="cities">
+        <h2>Cities and Landmarks</h2>
+
+        <select>
+            <option>Chennai – Marina Beach</option>
+            <option>Kolkata – Victoria Memorial</option>
+            <option>Amritsar – Golden Temple</option>
+            <option>Bhopal – Upper Lake</option>
+            <option>Udaipur – City Palace</option>
+        </select>
+
+        <p id="highlight">Famous Landmark Display</p>
+    </div>
+
+</div>
+
+</body>
+</html>
