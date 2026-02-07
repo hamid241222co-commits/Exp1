@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stayful.com | Sign in or Create Account</title>
+  <link rel="stylesheet" href="mini2.css">
+  
+  
+  <script>
+    
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("loginForm");
+    const emailInput = document.getElementById("email");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const email = emailInput.value.trim();
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (email === "") {
+        alert("Please enter your email address.");
+        emailInput.focus();
+        return;
+      }
+
+      if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        emailInput.focus();
+        return;
+      }
+
+      alert("Welcome to Stayful.com, " + email + "!");
+      localStorage.setItem("userEmail", email);
+
+      setTimeout(function() {
+        window.location.assign("homepage.html");
+      }, 500);
+    });
+  });
+</script>
+
+
+</head>
+<body>
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stayful.com | Sign in or Create Account</title>
+  <link rel="stylesheet" href="mini2.css">
+</head>
+<body>
+
+  <div id="next">
+    <h2 id="page">Stayful.com</h2>
+    <div id="loginpage">
+      <a href="javaminiproject.html"><button>Back</button></a>
+    </div>
+  </div>
+
+  <div id="container">
+    <div id="login-box">
+      <h2 id="in">Sign in or create an account</h2>
+      <p id="sign">Use your Stayful.com account to access our services.</p>
+
+      <form id="loginForm">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+        <a href="homepage.html"><button id="submit" type="submit">Continue with Email</button></a>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>By signing in or creating an account, you agree with our</p>
+    <p><b>Terms & Conditions</b> and <b>Privacy Statement</b>.</p>
+  </footer>
+</body>
+</html>
