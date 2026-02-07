@@ -1,84 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stayful.com | Sign in or Create Account</title>
-  <link rel="stylesheet" href="mini2.css">
-  
-  
-  <script>
-    
+    <title>Form Validation</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+        .container {
+            width: 350px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+        button {
+            background: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("loginForm");
-    const emailInput = document.getElementById("email");
+<body>
 
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
+<div class="container">
+    <h2>Registration Form</h2>
 
-      const email = emailInput.value.trim();
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    <form onsubmit="return validateForm()">
 
-      if (email === "") {
-        alert("Please enter your email address.");
-        emailInput.focus();
-        return;
-      }
+        Name:
+        <input type="text" id="name">
+        <div class="error" id="nameError"></div>
 
-      if (!emailPattern.test(email)) {
-        alert("Please enter a valid email address.");
-        emailInput.focus();
-        return;
-      }
+        Email:
+        <input type="text" id="email">
+        <div class="error" id="emailError"></div>
 
-      alert("Welcome to Stayful.com, " + email + "!");
-      localStorage.setItem("userEmail", email);
+        Password:
+        <input type="password" id="password">
+        <div class="error" id="passwordError"></div>
 
-      setTimeout(function() {
-        window.location.assign("homepage.html");
-      }, 500);
-    });
-  });
+        Phone:
+        <input type="text" id="phone">
+        <div class="error" id="phoneError"></div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+function validateForm() {
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+
+    let valid = true;
+
+    // Clear old errors
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("passwordError").innerHTML = "";
+    document.getElementById("phoneError").innerHTML = "";
+
+    // Name Validation
+    if (name === "") {
+        document.getElementById("nameError").innerHTML = "Name is required";
+        valid = false;
+    }
+
+    // Email Validation
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!email.match(emailPattern)) {
+        document.getElementById("emailError").innerHTML = "Enter valid email";
+        valid = false;
+    }
+
+    // Password Validation
+    if (password.length < 6) {
+        document.getElementById("passwordError").innerHTML = "Password must be at least 6 characters";
+        valid = false;
+    }
+
+    // Phone Validation
+    let phonePattern = /^[0-9]{10}$/;
+    if (!phone.match(phonePattern)) {
+        document.getElementById("phoneError").innerHTML = "Enter 10 digit phone number";
+        valid = false;
+    }
+
+    return valid;
+}
 </script>
 
-
-</head>
-<body>
-
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stayful.com | Sign in or Create Account</title>
-  <link rel="stylesheet" href="mini2.css">
-</head>
-<body>
-
-  <div id="next">
-    <h2 id="page">Stayful.com</h2>
-    <div id="loginpage">
-      <a href="javaminiproject.html"><button>Back</button></a>
-    </div>
-  </div>
-
-  <div id="container">
-    <div id="login-box">
-      <h2 id="in">Sign in or create an account</h2>
-      <p id="sign">Use your Stayful.com account to access our services.</p>
-
-      <form id="loginForm">
-        <label for="email">Email address</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-        <a href="homepage.html"><button id="submit" type="submit">Continue with Email</button></a>
-      </form>
-    </div>
-  </div>
-
-  <footer>
-    <p>By signing in or creating an account, you agree with our</p>
-    <p><b>Terms & Conditions</b> and <b>Privacy Statement</b>.</p>
-  </footer>
 </body>
 </html>
