@@ -77,10 +77,17 @@ function validateForm() {
     document.getElementById("passwordError").innerHTML = "";
     document.getElementById("phoneError").innerHTML = "";
 
+    let namePattern = /^[A-Za-z\s]+$/;
+    
     if (name === "") {
         document.getElementById("nameError").innerHTML = "Name is required";
         valid = false;
+    } 
+    else if (!name.match(namePattern)) {
+        document.getElementById("nameError").innerHTML = "Name should contain only letters";
+        valid = false;
     }
+
 
     let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
     if (!email.match(emailPattern)) {
