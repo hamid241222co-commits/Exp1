@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Product</title>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #f4f4f4;
+    }
+    .box {
+      width: 300px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px gray;
+    }
+    img {
+      width: 200px;
+      height: 200px;
+    }
+    button {
+      margin: 5px;
+      padding: 8px 12px;
+      background-color: grey;
+      color: white;
+      border-radius: 10%;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>Online Product Showcase</h2>
+
+<div class="box">
+  <img id="productImg" src="Product.jpg">
+  <h3 id="productName">Our Products</h3>
+  <p id="price">Price: ₹0</p>
+
+  <button onclick="showPhone()">Phone</button>
+  <button onclick="showLaptop()">Laptop</button>
+  <button onclick="showHeadphone()">Headphone</button>
+
+  <br><br>
+
+  <button id="hideBtn">Hide Image</button>
+  <button id="showBtn">Show Image</button>
+  <button id="animateBtn">Animate</button>
+</div>
+
+<script>
+function showPhone() {
+  document.getElementById("productName").innerText = "Phone";
+  document.getElementById("price").innerText = "Price: ₹1,50,000";
+  document.getElementById("productImg").src = "Smartphone.jpg";
+}
+
+function showLaptop() {
+  document.getElementById("productName").innerText = "Laptop";
+  document.getElementById("price").innerText = "Price: ₹70,000";
+  document.getElementById("productImg").src = "laptop.jpg";
+}
+
+function showHeadphone() {
+  document.getElementById("productName").innerText = "Headphones";
+  document.getElementById("price").innerText = "Price: ₹6,000";
+  document.getElementById("productImg").src = "headphones.jpg";
+}
+
+$(document).ready(function(){
+  $("#hideBtn").click(function(){
+    $("#productImg").hide();
+  });
+
+  $("#showBtn").click(function(){
+    $("#productImg").show();
+  });
+
+  $("#animateBtn").click(function(){
+    $("#productImg").animate({
+      width: '250px',
+      height: '250px'
+    }, 500);
+  });
+});
+</script>
+
+</body>
+</html>
