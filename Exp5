@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>City Weather Checker</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #74ebd5, #ACB6E5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 900px;
+}
+
+.container{
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    width: 320px;
+    text-align: center;
+}
+
+h2{
+    margin-bottom: 20px;
+}
+
+input{
+    width: 70%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid white;
+}
+
+button{
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover{
+    background-color: #45a049;
+}
+
+#message{
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#weatherBox{
+    display:none;
+    margin-top: 20px;
+    padding: 15px;
+    background: #f4f4f4;
+    border-radius: 10px;
+}
+
+#weatherBox p{
+    margin: 6px 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Weather Checker</h2>
+
+<input type="text" id="city" placeholder="Enter city name">
+<button id="checkWeather">Check</button>
+
+<p id="message"></p>
+
+<div id="weatherBox">
+    <h3 id="cityTitle"></h3>
+    <p id="temp"></p>
+    <p id="humidity"></p>
+    <p id="wind"></p>
+</div>
+
+</div>
+
+<script>
+$("#checkWeather").click(function(){
+
+    let city = $("#city").val().trim();
+    let apiKey = "6995e5050eed448e9f761639260303";
+
+    if(city === ""){
+        $("#message").css("color","red").text("City name required!");
+        return;
+    }
+
+    $("#message").css("color","black").text("Loading...");
+    $("#weatherBox").hide();
+
+    $.ajax({
+        url: "https://api.weatherapi.com/v1/current.json?key=" 
+              + apiKey + 
+              "&q=" + city,
+        method: "GET",
+
+        success: function(response){
+
+            $("#message").text("");
+
+            $("#cityTitle").text(response.location.name);
+            $("#temp").text("Temperature: " + response.current.temp_c + " °C");
+            $("#humidity").text("Humidity: " + response.current.humidity + " %");
+            $("#wind").text("Wind Speed: " + response.current.wind_kph + " kph");
+
+            $("#weatherBox").fadeIn();
+        },
+
+        error: function(){
+            $("#message").css("color","red").text("Unable to fetch data.");
+        }
+    });
+
+});
+</script>
+
+</body>
+</html>
